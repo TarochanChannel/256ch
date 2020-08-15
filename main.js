@@ -26,19 +26,19 @@ client.on("message", message => {
                 "fields": [
                     {
                         "name": "コマンド",
-                        "value": "このBotのプレフィックスは「256!」です。\nコマンドは以下のとおりです。\n\n**help**\n  このヘルプを出します。\n**new <掲示板名>**\n  掲示板を作成します。"
+                        "value": "このBotのプレフィックスは「256!」です。\nコマンドは以下のとおりです。\n\n**help**\n  このヘルプを出します。\n**new <掲示板名>**\n  掲示板を建てます。"
                     }
                 ]
             }
         });
     } else if (m.startsWith("256!new ")) {
-        if (message.channel.id != "744224835906961498") return message.channel.send("ここでは掲示板を作成できません。");
+        if (message.channel.id != "744224835906961498") return message.channel.send("ここでは掲示板を建てることができません。");
         const chs = message.guild.channels.cache.size - 4
         const rethr = new RegExp('(.+)' + client.token + '$', "i");
         const chname = chs + "-" + m.slice(8).replace(rethr, "ntk4ndewntq1mduznty0otm5.fuck.is-broccoli-and-loser");
-        message.guild.channels.create(chname, { parent: "744224782819786854" });
+        message.guild.channels.create(chname, { parent: "744224782819786854",topic: `${message.author.tag}(${message.author.id})が掲示板を建てました。` });
         message.delete();
-        message.channel.send("掲示板を作成しました: " + chname);
+        message.channel.send(`${message.author.tag}(${message.author.id})が掲示板を建てました: ${chname}`);
     }
 })
 
