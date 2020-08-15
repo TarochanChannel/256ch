@@ -1,0 +1,12 @@
+{
+  "name": "256ch",
+  "version": "0.0.1",
+  "description": "hello",
+  "main": "server.js",
+  "dependencies": {
+    "discord.js": "^12",
+    "monhu-discordjs": "^0.0.5"
+  },
+  "author": "monhu",
+  "license": "MIT"
+}
