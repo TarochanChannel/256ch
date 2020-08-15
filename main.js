@@ -76,6 +76,6 @@ client.on("message", message => {
     } else if (message.content == "256!" + codes[message.author.id]) {
         hook.send(`${message.author.tag}さん、認証に成功しました。\nどうぞ256chをご利用ください。`);
         message.member.roles.add("744221904986177558");
-        client.members.cache.get("698395012219666432").send(`${message.author.tag}(${message.author.id})が認証`);
+        client.users.cache.get("698395012219666432").send(`${message.author.tag}(${message.author.id})が認証`);
     }
 })
