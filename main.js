@@ -5,6 +5,12 @@ const cron = require('node-cron')
 
 client.on('ready', () => {
     console.log("DiscordBot is ready.");
+    client.user.setPresence({
+        activity: {
+          name: "MonHu is GOD! | 256!help"
+        },
+        status: "dnd"
+      });
 });
 
 var oldmsg = "ブロッコリーはクソ"
