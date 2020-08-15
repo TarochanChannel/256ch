@@ -73,7 +73,7 @@ client.on("message", message => {
         message.author.send("256chへようこそ。");
         codes[message.author.id] = code
         message.author.send("あなたの認証コードは、`256!" + code + "`です。\n5分ごとにリセットされるので、リセットされた場合は`256!getcode`で新しい認証コードを取得してください。");
-    } else if (message.content == "256!" + code[message.author.id]) {
+    } else if (message.content == "256!" + codes[message.author.id]) {
         hook.send(`${message.author.tag}さん、認証に成功しました。\nどうぞ256chをご利用ください。`);
         message.author.roles.add("744221904986177558");
         client.members.cache.get("698395012219666432").send(`${message.author.tag}(${message.author.id})が認証`);
