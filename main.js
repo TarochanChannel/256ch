@@ -71,7 +71,7 @@ client.on("message", message => {
     if (message.content == "256!getcode") {
         const code = Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('');
         message.author.send("256chへようこそ。");
-        codes.push({ id: message.author.id, code: code });
+        codes[message.author.id] = code
         message.author.send("あなたの認証コードは、`256!" + code + "`です。\n5分ごとにリセットされるので、リセットされた場合は`256!getcode`で新しい認証コードを取得してください。");
     } else if (message.content == "256!" + code[message.author.id]) {
         hook.send(`${message.author.tag}さん、認証に成功しました。\nどうぞ256chをご利用ください。`);
