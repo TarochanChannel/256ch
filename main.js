@@ -102,7 +102,7 @@ client.on("message", async message => {
         const msgs = await message.author.send(
             "スパム防止機能によって削除されました。"
         );
-        msgs.delete({ timeout: 5000 });
+        msgs.delete({ timeout: 10000 });
     }
     omsg = message.content;
     amsg = message.author.id;
