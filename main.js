@@ -19,6 +19,7 @@ client.on("message", message => {
     if (message.author.bot) return;
     if (message.content == oldmsg) return;
     if (!message.guild) return;
+    oldmsg = message.content
     const m = message.content
     if (!m.startsWith("256!")) return;
     if (m == "256!") message.channel.send("ヘルプを見るには、`256!help`と入力してください。");
@@ -77,7 +78,7 @@ var N = 256
 client.on("message", message => {
     if (message.content == oldmsg) return;
     if (message.author.bot) return;
-    const m = message.content
+    oldmsg = message.content
     if (message.content == "256!getcode") {
         const code = Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('');
         message.author.send("256chへようこそ。");
@@ -95,5 +96,5 @@ client.on("message", message => {
 client.on("message", message => {
     if (message.content == oldmsg) return message.delete();
     if (message.author.bot) return;
-    const m = message.content;
+    oldmsg = message.content
 });
