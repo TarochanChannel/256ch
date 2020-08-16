@@ -7,7 +7,7 @@ client.on('ready', () => {
     console.log("DiscordBot is ready.");
     client.user.setPresence({
         activity: {
-          name: "MonHu is GOD! | 256!help"
+          name: "MonHu is GOD! | 256!help | Fucking Broccoli and Loser"
         },
         status: "dnd"
       });
@@ -23,13 +23,12 @@ client.on("message", message => {
     if (m == "256!") message.channel.send("ヘルプを見るには、`256!help`と入力してください。");
     if (m == "256!help") {
         message.channel.send({
-            "content": "256chをご利用いただきありがとうございます。\n`このヘルプは、埋め込みを使用しているため設定によりご覧いただけない場合がございますので、予めご了承ください。``",
+            "content": "256chをご利用いただきありがとうございます。\n`このヘルプは、埋め込みを使用しているため設定によりご覧いただけない場合がございますので、予めご了承ください。`",
             "embed": {
                 "title": "256chBotのヘルプです。",
                 "description": "このBotが停止している場合がございますので、予めご了承ください。",
                 "footer": {
-                    "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
-                    "text": "footer text"
+                    "text": "256ch"
                 },
                 "fields": [
                     {
@@ -63,14 +62,6 @@ cron.schedule('0,5,10,15,20,25,30,35,40,45,50,55 * * * *', () => {
 
 var S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 var N = 256
-client.on('guildMemberAdd', member => {
-    if (member.bot) return;
-    const code = Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('');
-    member.send("256chへようこそ。");
-    codes[message.author.id] = code
-    member.send("あなたの認証コードは、`256!" + code + "`です。\n5分ごとにリセットされるので、リセットされた場合は`256!getcode`で新しい認証コードを取得してください。");
-    hook.send(member.displayname + "さんが参加しました。\n認証コードはDMに送信されました。\m※認証コードを再送信するには`256!getcode`を入力してください。");
-});
 
 client.on("message", message => {
     if (message.author.bot) return;
