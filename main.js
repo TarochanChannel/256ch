@@ -94,7 +94,7 @@ client.on("message", message => {
 
 //スパム防止
 client.on("message", message => {
-    if (message.content == oldmsg) return message.delete();
+    if (message.content == oldmsg) {message.delete();return;}
     if (message.author.bot) return;
     oldmsg = message.content
 });
