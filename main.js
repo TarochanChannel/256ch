@@ -93,7 +93,17 @@ client.on("message", message => {
 });
 
 //スパム防止
-/*client.on("message", message => {
-    if (message.content == oldmsg) {messae.delete();return;}
+var omsg;
+var amsg;
+client.on("message", async message => {
     if (message.author.bot) return;
-});*/
+    if (message.content == omsg && message.author.id == amsg && !omsg == "") {
+        message.delete();
+        const msgs = await message.author.send(
+            "スパム防止機能によって削除されました。"
+        );
+        msgs.delete({ timeout: 5000 });
+    }
+    omsg = message.content;
+    amsg = message.author.id;
+});
