@@ -40,7 +40,7 @@ client.on("message", message => {
         });
     } else if (m.startsWith("256!new ")) {
         if (message.channel.id != "744224835906961498") return message.channel.send("ここでは掲示板を建てることができません。");
-        const chs = message.guild.channels.cache.size - 4
+        const chs = message.guild.channels.cache.size - 8
         const rethr = new RegExp('(.+)' + client.token + '$', "i");
         const chname = chs + "-" + m.slice(8).replace(rethr, "ntk4ndewntq1mduznty0otm5.fuck.is-broccoli-and-loser");
         message.guild.channels.create(chname, { parent: "744224782819786854", topic: `${message.author.tag}(${message.author.id})が掲示板を建てました。` });
