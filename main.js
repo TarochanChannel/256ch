@@ -75,6 +75,7 @@ var S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 var N = 256
 
 client.on("message", message => {
+    if (message.content == oldmsg) return;
     if (message.author.bot) return;
     if (message.content == "256!getcode") {
         const code = Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('');
