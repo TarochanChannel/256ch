@@ -54,6 +54,8 @@ client.on("message", message => {
             message.channel.send("削除されます。");
             message.channel.delete();
             client.channels.cache.get("744224835906961498").send(`${message.author.tag}さんの掲示板が${message.author.tag}から削除されました。`);
+        }　else {
+            message.channel.send("あなたのチャンネルでは有りません。");
         }
     }
 })
