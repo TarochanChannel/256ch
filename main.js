@@ -93,8 +93,7 @@ client.on("message", message => {
 });
 
 //スパム防止
-client.on("message", message => {
-    if (message.content == oldmsg) {message.delete();return;}
+/*client.on("message", message => {
+    if (message.content == oldmsg) {messae.delete();return;}
     if (message.author.bot) return;
-    oldmsg = message.content
-});
+});*/
