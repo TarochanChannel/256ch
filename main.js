@@ -3,7 +3,14 @@ const client = new Discord.Client();
 
 const cron = require('node-cron')
 
+let rtime = 0
+let rtimet = true
+setInterval(function () {
+  if (rtimet) rtime += 10
+}, 10)
+
 client.on('ready', () => {
+    rtimet = false;
     console.log("DiscordBot is ready.");
     client.user.setPresence({
         activity: {
@@ -11,7 +18,7 @@ client.on('ready', () => {
         },
         status: "dnd"
     });
-    client.channels.cache.get("744450298394837102").send("再起動されました。\nBotをご利用いただけます。");
+    client.channels.cache.get("744450298394837102").send("再起動されました。\nBotをご利用いただけます。\n起動時間は、約"+rtime+"ミリ秒です。");
 });
 
 var oldmsg = "ブロッコリーはクソ"
