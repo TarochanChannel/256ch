@@ -7,11 +7,11 @@ client.on('ready', () => {
     console.log("DiscordBot is ready.");
     client.user.setPresence({
         activity: {
-          name: "MonHu is GOD! | 256!help | Fucking Broccoli and Loser"
+            name: "MonHu is GOD! | 256!help | Fucking Broccoli and Loser"
         },
         status: "dnd"
-      });
-      client.channels.cache.get("744450298394837102").send("再起動されました。\nBotをご利用いただけます。");
+    });
+    client.channels.cache.get("744450298394837102").send("再起動されました。\nBotをご利用いただけます。");
 });
 
 var oldmsg = "ブロッコリーはクソ"
@@ -47,14 +47,14 @@ client.on("message", message => {
         message.guild.channels.create(chname, { parent: "744224782819786854", topic: `${message.author.tag}(${message.author.id})が掲示板を建てました。` });
         message.delete();
         message.channel.send(`${message.author.tag}(${message.author.id})が掲示板を建てました: ${chname}`);
-    }else if (m == "256!del") {
+    } else if (m == "256!del") {
         if (!message.channel.topic) return message.channel.send("あなたのチャンネルでは有りません。");
         reg = new RegExp(message.author.id);
         if (message.channel.topic.match(reg)) {
             message.channel.send("削除されます。");
             message.channel.delete();
             client.channels.cache.get("744224835906961498").send(`${message.author.tag}さんの掲示板が${message.author.tag}から削除されました。`);
-        }　else {
+        } else {
             message.channel.send("あなたのチャンネルでは有りません。");
         }
     }
@@ -80,7 +80,7 @@ client.on("message", message => {
         const code = Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('');
         message.author.send("256chへようこそ。");
         codes[message.author.id] = code
-        message.author.send("あなたの認証コードは、`256!" + code + "`です。\n5分ごとにリセットされるので、リセットされた場合は`256!getcode`で新しい認証コードを取得してください。");
+        message.author.send("あなたの認証コードは、"); message.author.send("`256!" + code + "`"); message.author.send("です。\n5分ごとにリセットされるので、リセットされた場合は`256!getcode`で新しい認証コードを取得してください。");
     } else if (message.content == "256!" + codes[message.author.id]) {
         if (!message.guild) return;
         hook.send(`${message.author.tag}さん、認証に成功しました。\nどうぞ256chをご利用ください。`);
