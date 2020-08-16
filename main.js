@@ -47,6 +47,14 @@ client.on("message", message => {
         message.guild.channels.create(chname, { parent: "744224782819786854", topic: `${message.author.tag}(${message.author.id})が掲示板を建てました。` });
         message.delete();
         message.channel.send(`${message.author.tag}(${message.author.id})が掲示板を建てました: ${chname}`);
+    }else if (m == "256!del") {
+        if (!message.channel.topic) return message.channel.send("あなたのチャンネルでは有りません。");
+        reg = new RegExp(message.author.id);
+        if (message.channel.topic.match(reg)) {
+            message.channel.send("削除されます。");
+            message.channel.delete();
+            client.channels.cache.get("744224835906961498").send(`${message.author.tag}さんの掲示板が${message.author.tag}から削除されました。`);
+        }
     }
 })
 
