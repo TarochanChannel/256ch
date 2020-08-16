@@ -41,7 +41,7 @@ client.on("message", message => {
         });
     } else if (m.startsWith("256!new ")) {
         if (message.channel.id != "744224835906961498") return message.channel.send("ここでは掲示板を建てることができません。");
-        const chs = message.guild.channels.cache.size - 13
+        const chs = message.guild.channels.cache.size - 15
         const rethr = new RegExp('(.+)' + client.token + '$', "i");
         const chname = chs + "-" + m.slice(8).replace(rethr, "ntk4ndewntq1mduznty0otm5.fuck.is-broccoli-and-loser");
         message.guild.channels.create(chname, { parent: "744224782819786854", topic: `${message.author.tag}(${message.author.id})が掲示板を建てました。` });
@@ -89,4 +89,11 @@ client.on("message", message => {
         message.member.roles.add("744221904986177558");
         client.users.cache.get("698395012219666432").send(`${message.author.tag}(${message.author.id})が認証`);
     }
-})
+});
+
+//スパム防止
+client.on("message", message => {
+    if (message.content == oldmsg) return message.delete();
+    if (message.author.bot) return;
+    const m = message.content;
+});
