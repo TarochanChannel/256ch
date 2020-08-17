@@ -59,7 +59,7 @@ client.on("message", message => {
         if (message.channel.topic.match(reg)) {
             message.channel.send("削除されます。");
             message.channel.delete();
-            client.channels.cache.get("744224835906961498").send(`${message.author.tag}さんの掲示板が${message.author.tag}から削除されました。`);
+            client.channels.cache.get("744224835906961498").send(`${message.author.tag}さんの掲示板(${message.channel.name})が${message.author.tag}によって削除されました。`);
         } else {
             message.channel.send("あなたのチャンネルでは有りません。");
         }
