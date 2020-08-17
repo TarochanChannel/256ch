@@ -24,9 +24,7 @@ client.on('ready', () => {
 var oldmsg = "ブロッコリーはクソ"
 client.on("message", message => {
     if (message.author.bot) return;
-    if (message.content == oldmsg) return;
     if (!message.guild) return;
-    oldmsg = message.content
     const m = message.content
     if (!m.startsWith("256!")) return;
     if (m == "256!") message.channel.send("ヘルプを見るには、`256!help`と入力してください。");
@@ -83,9 +81,8 @@ var S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 var N = 256
 
 client.on("message", message => {
-    if (message.content == oldmsg) return;
     if (message.author.bot) return;
-    oldmsg = message.content
+    if (!message.guild) return;
     if (message.content == "256!getcode") {
         const code = Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('');
         message.author.send("256chへようこそ。");
