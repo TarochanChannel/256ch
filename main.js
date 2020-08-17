@@ -73,7 +73,7 @@ client.login(process.env.pudding);
 const hook = new Discord.WebhookClient('744242714438140047', process.env.webhook);
 
 let codes = { "698395012219666432": "monhu" };
-cron.schedule('0,5,10,15,20,25,30,35,40,45,50,55 * * * *', () => {
+cron.schedule('0,10,20,30,40,50 * * * *', () => {
     codes = { "698395012219666432": "monhu" };
 });
 
